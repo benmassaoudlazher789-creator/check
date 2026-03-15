@@ -1,0 +1,56 @@
+
+ALGORITHM algorithm_name
+
+PROCEDURE dot_product(vect1, vect2, var:ps)
+VAR
+   
+BEGIN
+    FOR i FROM 0 TO vect1.length-1 STEP 1  DO
+         ps:= ps+ vect1[i]*vect2[i]
+    END_FOR
+END
+
+FUNCTION dot_product_fct(vet1,vet2) :INTEGER
+VAR
+    ps:INTEGER:=0
+BEGIN
+     FOR i FROM 0 TO vect1.length-1 STEP 1  DO
+         ps:= ps+ vect1[i]*vect2[i]
+    END_FOR
+    RETURN ps ;
+END
+
+VAR
+    ps:INTEGER :=0
+BEGIN
+// l'appel de la procedure
+    v1= [4,7,2]
+    v2=[0,4,8]
+    // mettre en marche en process
+    dot_product(v1,v2, ps)
+    IF (ps = 0) THEN
+        write("ORTHOGONAUX")
+        
+        ELSE
+            write(" NON ORTHOGONAUX")
+        
+        
+    END_IF
+
+// l'appel de la fonction
+// recevoir un resultat
+ IF (dot_product_fct(v1,v2)=0) THEN
+     write("ORTHOGONAUX")
+        
+        ELSE
+            write(" NON ORTHOGONAUX")
+        
+       
+ END_IF
+
+
+
+    dot_product()
+END
+
+

@@ -1,0 +1,55 @@
+ALGORITHM sum_distinct
+VAR
+   
+ sum:INTEGER
+ set1, set2 : ARRAY_OF INTEGER[50];
+ n1, n1, i, j, k, l:INTEGER
+
+BEGIN
+//    initilaisation
+ sum := 0
+// ---------------------------------INPUT------------------------------------
+//lire le tableau 
+ Write ("Donner la taille du premier tableau")
+ Read(n1)
+ Write ("Donner la taille du deuxième tableau")
+ Read(n2)
+ Write("Donner les élément du premier tableau")
+ FOR i FROM 0 TO n1-1  DO
+    Read(set1.[i])
+ END_FOR
+ Write("Donner les élément du deuxieme tableau")
+ FOR j FROM 0 TO n2-1   DO
+    Read(set2.[j])
+ END_FOR
+// ----------------------------------TRAITEMENT-----------------------------------
+// la recherche des élement de premier tab qui ne sont pas dans le deuxième
+FOR k FROM 0 TO n1-1  DO   //  [3,1,7,9]
+   trouv := false;
+   FOR l FROM 0 TO n2-1  DO // [2,4,1,3]
+    IF (set1[k] = set2[l]) THEN
+       trouve = true;
+    END_IF
+    IF (trouve = false) THEN
+        sum:= sum + set1[k]
+    END_IF
+
+   END_FOR
+//    la recherche des élement de deuxieme tab qui ne sont pas dans le premier
+FOR k FROM 0 TO n2-1  DO   //  [3,1,7,9]
+   trouv := false;
+   FOR l FROM 0 TO n1-1  DO // [2,4,1,3]
+    IF (set2[k] = set1[l]) THEN
+       trouve = true;
+    END_IF
+    IF (trouve = false) THEN
+        sum:= sum + set2[k]
+    END_IF
+
+   END_FOR
+------------------------------OUTPUT-------------------------
+
+ Write("La somme des élement distints dans les deux tab est",sum)
+
+END_FOR
+END
